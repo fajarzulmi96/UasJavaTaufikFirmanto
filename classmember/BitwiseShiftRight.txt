@@ -1,0 +1,18 @@
+Operator >> (Shift Right)
+
+Operator >> digunakan untuk menggeser bit ke kanan. Setiap pergeseran ke kanan mengalikan nilai dengan 2 yang dipangkatkan dengan jumlah bit yang digeser.
+
+public class BitwiseShiftRight {
+    public static void main(String[] args) {
+        int number = 16; // Binary: 00010000
+        int result = number >> 2; // Menggeser 2 bit ke kanan
+        System.out.println("Hasil dari 16 >> 2 adalah: " + result); // Output: 4 (Binary: 00000100)
+    }
+}
+Penjelasan:
+
+00010000 adalah representasi biner dari 16.
+Menggeser 2 bit ke kanan: 00000100, yang merupakan 4 dalam desimal.
+Hasilnya adalah 4.
+Operator & (And)
+

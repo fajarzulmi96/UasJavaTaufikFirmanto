@@ -1,0 +1,73 @@
+1. Class digunakan untuk menyimpan data member
+
+public class Member {
+    // Data member
+    private String kodeMember;
+    private String nama;
+    private int point;
+Kelas Member menyimpan data member dengan atribut kodeMember, nama, dan point.
+
+2. Setiap member memiliki data berupa kode member, nama, dan point
+
+public Member(String kodeMember, String nama) {
+    this.kodeMember = kodeMember;
+    this.nama = nama;
+    this.point = 0;
+}
+Konstruktor Member menginisialisasi objek dengan kode member, nama, dan menetapkan poin awal ke 0.
+3. Member memiliki kemampuan untuk menambah point berdasarkan transaksi yang dilakukan. Untuk setiap 10000 rupiah akan mendapatkan 1 point. Contoh: jika member belanja sebesar 23000 rupiah, maka member akan mendapatkan 2 point
+
+
+public void transaksi(int jumlahBelanja) {
+    int pointTambah = jumlahBelanja / 10000;
+    this.point += pointTambah;
+}
+Metode transaksi menambahkan poin sesuai dengan jumlah belanja. Setiap 10.000 rupiah belanja akan menambah 1 poin. Dalam contoh belanja 23.000 rupiah, member akan mendapatkan 2 poin.
+
+4. Member juga mampu melakukan penukaran point terhadap hadiah yang ada. Berikut adalah list hadiah yang bisa ditukar
+
+private static final Map<String, Integer> HADIAH = new HashMap<>();
+
+static {
+    HADIAH.put("boneka", 10000);
+    HADIAH.put("Mainan", 7000);
+    HADIAH.put("Mie instant", 5000);
+    HADIAH.put("biskuit", 4000);
+}
+Hadiah dan jumlah poin yang dibutuhkan didefinisikan dalam HADIAH, yang merupakan Map statis yang diinisialisasi dengan hadiah dan poin yang diperlukan.
+
+public String tukarHadiah(String namaHadiah) {
+    if (HADIAH.containsKey(namaHadiah)) {
+        int pointDiperlukan = HADIAH.get(namaHadiah);
+        if (this.point >= pointDiperlukan) {
+            this.point -= pointDiperlukan;
+            return "Berhasil menukar point untuk hadiah: " + namaHadiah;
+        } else {
+            return "Point tidak cukup untuk menukar hadiah: " + namaHadiah;
+        }
+    } else {
+        return "Hadiah tidak tersedia: " + namaHadiah;
+    }
+}
+Metode tukarHadiah memungkinkan member untuk menukar poin dengan hadiah. Jika member memiliki cukup poin dan hadiah tersedia, poin akan dikurangi sesuai dengan hadiah yang dipilih.
+Cara Deklarasi Objek dan Penggunaan Fungsi
+
+public static void main(String[] args) {
+    // Membuat objek Member
+    Member member1 = new Member("M001", "Andi");
+
+    // Menampilkan info member sebelum transaksi
+    member1.tampilkanInfo();
+
+    // Melakukan transaksi
+    member1.transaksi(23000); // Belanja 23000 rupiah
+    System.out.println("Point setelah transaksi: " + member1.getPoint());
+
+    // Menukar hadiah
+    System.out.println(member1.tukarHadiah("boneka"));
+    System.out.println("Point setelah menukar hadiah: " + member1.getPoint());
+
+    // Menampilkan info member setelah transaksi dan penukaran hadiah
+    member1.tampilkanInfo();
+}
+Metode main membuat objek Member, melakukan transaksi, menukar hadiah, dan menampilkan informasi sebelum dan sesudah transaksi serta penukaran hadiah.

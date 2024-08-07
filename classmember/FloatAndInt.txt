@@ -1,0 +1,17 @@
+Tipe Data int:
+
+Kapasitas Penampungan: int dapat menampung nilai dari -2,147,483,648 hingga 2,147,483,647 (4 byte atau 32 bit).
+Penggunaan: Digunakan untuk menyimpan bilangan bulat (integer) tanpa pecahan.
+
+int myInt = 100; // Contoh penggunaan int
+Tipe Data float:
+
+Kapasitas Penampungan: float dapat menampung nilai desimal dengan presisi 7 digit desimal (4 byte atau 32 bit).
+Penggunaan: Digunakan untuk menyimpan angka pecahan (floating-point) dengan presisi yang lebih rendah dibandingkan double.
+
+float myFloat = 3.14f; // Contoh penggunaan float, perlu menambahkan 'f' di akhir angka desimal
+Perbedaan Utama:
+
+int tidak dapat menyimpan angka desimal, sedangkan float dapat.
+int memiliki presisi lebih tinggi untuk bilangan bulat, sedangkan float menawarkan presisi untuk angka desimal dengan kapasitas penyimpanan yang lebih kecil.
+Jika Anda memerlukan presisi yang lebih tinggi untuk angka desimal, Anda dapat menggunakan tipe data double, yang memiliki kapasitas penyimpanan 8 byte dan presisi sekitar 15 digit desimal.
